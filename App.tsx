@@ -13,30 +13,31 @@ import {
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [lang, setLang] = useState<'zh' | 'en'>('zh');
 
-  // Simple routing logic based on hash or state
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activeTab]);
 
   const renderContent = () => {
+    const props = { lang };
     switch (activeTab) {
-      case 'home': return <HomeSection />;
-      case 'research': return <ResearchSection />;
-      case 'team': return <TeamSection />;
-      case 'publications': return <PublicationSection />;
-      case 'join': return <JoinSection />;
-      case 'contact': return <ContactSection />;
-      default: return <HomeSection />;
+      case 'home': return <HomeSection {...props} />;
+      case 'research': return <ResearchSection {...props} />;
+      case 'team': return <TeamSection {...props} />;
+      case 'publications': return <PublicationSection {...props} />;
+      case 'join': return <JoinSection {...props} />;
+      case 'contact': return <ContactSection {...props} />;
+      default: return <HomeSection {...props} />;
     }
   };
 
   return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+    <Layout activeTab={activeTab} setActiveTab={setActiveTab} lang={lang} setLang={setLang}>
       <div className="animate-in fade-in duration-700">
         {renderContent()}
       </div>
-      <AIAssistant />
+      <AIAssistant lang={lang} />
     </Layout>
   );
 };
