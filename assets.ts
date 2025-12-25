@@ -6,6 +6,10 @@
  */
 
 export const IMAGES = {
+  // 品牌标识
+  logo: "https://www.tju.edu.cn/images/logo.png", // 天津大学官方Logo链接或你的实验室Logo
+  favicon: "/favicon.ico",
+
   // 首页大图
   heroBackground: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=2070",
   
